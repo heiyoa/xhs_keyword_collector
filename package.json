@@ -1,0 +1,36 @@
+{
+  "name": "roxy-unified-access-demo",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "verify": "node --env-file=.env src/verify-roxy.js",
+    "verify:create": "node --env-file=.env src/verify-roxy.js --create",
+    "verify:open": "node --env-file=.env src/verify-roxy.js --create --open-created",
+    "verify:create:cleanup": "node --env-file=.env src/verify-roxy.js --create --cleanup-created",
+    "verify:open:cleanup": "node --env-file=.env src/verify-roxy.js --create --open-created --cleanup-created",
+    "window-reuse:start": "node --env-file=.env src/window-reuse-experiment.js start",
+    "window-reuse:capture": "node --env-file=.env src/window-reuse-experiment.js capture",
+    "window-reuse:restore:cookie": "node --env-file=.env src/window-reuse-experiment.js restore --strategy=cookie-only",
+    "window-reuse:restore:full": "node --env-file=.env src/window-reuse-experiment.js restore --strategy=full-web-state",
+    "window-reuse:cleanup": "node --env-file=.env src/window-reuse-experiment.js cleanup",
+    "social-reuse:capture": "node --env-file=.env src/social-window-reuse.js capture-open",
+    "social-reuse:restore": "node --env-file=.env src/social-window-reuse.js restore",
+    "social-reuse:cleanup": "node --env-file=.env src/social-window-reuse.js cleanup-site",
+    "db:init": "node --env-file=.env src/browser_modules/cli/binding-cli.js init-db",
+    "binding:resolve": "node --env-file=.env src/browser_modules/cli/binding-cli.js resolve",
+    "profile:archive": "node --env-file=.env src/browser_modules/cli/profile-archive-cli.js save",
+    "profile:restore": "node --env-file=.env src/browser_modules/cli/profile-archive-cli.js restore",
+    "profile:smoke": "node --env-file=.env src/browser_modules/cli/profile-smoke-cli.js run",
+    "profile:lifecycle": "node --env-file=.env src/browser_modules/cli/profile-lifecycle-cli.js",
+    "xhs:trial": "node --env-file=.env src/browser_modules/cli/xhs-trial-cli.js run",
+    "xhs:juguang:collect": "node --env-file=.env src/browser_modules/cli/xhs-juguang-keyword-cli.js run"
+  },
+  "engines": {
+    "node": ">=20 <21"
+  },
+  "dependencies": {
+    "better-sqlite3": "^12.9.0",
+    "playwright-core": "^1.59.1"
+  }
+}
